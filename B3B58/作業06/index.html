@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>作業06</title>
+<style>
+
+h4 {
+  color: purple
+}
+
+label {
+ color: blue
+}
+
+input {
+
+}
+
+div {
+
+  color: red;
+
+  margin: 5px;
+
+}
+
+</style>
+</head>
+
+
+<form id="form01">
+
+	<label>姓名:</label>
+
+	<input type="text" name="name01" value="劉俊良"><br>
+
+	<label>收件地址:</label>
+
+	<input type="text" name="address01" value="台北市中山區德惠街"><br>
+
+	<label>電話:</label>
+
+	<input type="tel" name="tel01" value="0980830784"><br>
+
+	<label>電子郵件：</label>
+
+	<input type="email" name="email01" value="a0980830784@gmail.com"><br>
+
+	<label>指定送貨日期：</label>
+
+	<input type="date" name="date01"><br>
+
+	<label>水果種類：</label><br>
+
+	<input type="radio" name="laman" id="laman01" value="拉麵1碗">拉麵（1碗） 300元<br>
+
+	<input type="radio" name="laman" id="laman02" value="豚骨拉麵(一碗)">豚骨拉麵(1碗) 350元<br>
+
+	<input type="radio" name="laman" id="laman03" value="雞白湯拉麵(1碗)">雞白湯拉麵(1碗) 320元<br>
+
+</form>
+
+
+
+<br>
+
+
+
+<button onclick="shoppingInfo()"><h4>結帳</h4></button>
+
+<div id="demo"></div>
+
+
+
+<script>
+
+function shoppingInfo() {
+
+  const form = document.getElementById("form01");
+
+  var text = "<h4>您的購物資訊如下：</h4>";
+
+  var i;
+
+  for (i = 0; i < 5; i++) {
+
+    switch (i) {
+
+      case 0:
+
+        item = "姓名：";
+
+        break;
+
+      case 1:
+
+        item = "收件地址：";
+
+        break;
+
+      case 2:
+
+        item = "電話：";
+
+        break;
+
+      case 3:
+
+        item = "電子郵件：";
+
+        break;
+
+      case 4:
+
+        item = "指定送貨日期：";
+
+        break;
+
+    }
+
+    text += item + form.elements[i].value + "<br>";
+
+  }
+
+
+
+  for (i = 5; i <= 7; i++) {
+
+    if (form.elements[i].checked === true) {
+
+      switch (i) {
+
+        case 5:
+
+          price = 475;
+
+          break;
+
+        case 6:
+
+          price = 435;
+
+          break;
+
+        case 7:
+
+          price = 749;
+
+          break;
+
+      }
+
+      text += "拉麵種類：" + form.elements[i].value + "<br>";
+
+      text += "價格合計：" + price + "元<br>";
+
+    }
+
+  }
+
+  document.getElementById("demo").innerHTML = text;
+
+}
+
+</script>
+</html>
